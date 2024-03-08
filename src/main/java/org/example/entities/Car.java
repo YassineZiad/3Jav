@@ -47,4 +47,12 @@ public class Car {
     public void setModel(String model) {
         this.model = model;
     }
+
+    public Garage getGarage() {
+        return garage;
+    }
+
+    public void setGarage(Garage garage) {
+        this.garage = garage;
+    }
 }

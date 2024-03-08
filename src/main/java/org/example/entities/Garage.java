@@ -18,8 +18,8 @@ public class Garage {
     @Column(name = "address")
     private String address;
 
-    @OneToMany(mappedBy = "garageId", fetch = FetchType.LAZY)
-    private List<Car> car;
+    @OneToMany(mappedBy = "garage", fetch = FetchType.LAZY)
+    private List<Car> cars;
 
     public Garage() {
 
@@ -49,11 +49,11 @@ public class Garage {
         this.address = address;
     }
 
-    public List<Car> getCar() {
-        return car;
+    public List<Car> getCars() {
+        return cars;
     }
 
-    public void setCar(List<Car> car) {
-        this.car = car;
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 }
