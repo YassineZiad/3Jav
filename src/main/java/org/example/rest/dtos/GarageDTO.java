@@ -12,7 +12,7 @@ public class GarageDTO {
 
     private String address;
 
-    private List<Car> cars;
+    private List<CarDTO> cars;
 
     public GarageDTO() {
 
@@ -42,11 +42,11 @@ public class GarageDTO {
         this.address = address;
     }
 
-    public List<Car> getCars() {
+    public List<CarDTO> getCars() {
         return cars;
     }
 
-    public void setCars(List<Car> cars) {
+    public void setCars(List<CarDTO> cars) {
         this.cars = cars;
     }
 }

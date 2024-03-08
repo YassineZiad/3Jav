@@ -12,7 +12,7 @@ public class GarageMapper {
         dto.setId((garage.getId()));
         dto.setName(garage.getName());
         dto.setAddress(garage.getAddress());
-        dto.setCars(garage.getCars());
+        dto.setCars(CarMapper.toDto(garage.getCars()));
         return dto;
     }
 
@@ -21,7 +21,7 @@ public class GarageMapper {
         garage.setId((dto.getId()));
         garage.setName(dto.getName());
         garage.setAddress(dto.getAddress());
-        garage.setCars(dto.getCars());
+        garage.setCars(CarMapper.toEntity(dto.getCars()));
         return garage;
     }
 
