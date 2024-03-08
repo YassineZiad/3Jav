@@ -57,13 +57,13 @@ public class GarageController {
     @GetMapping("/addCar/{idGarage}/{idCar}")
     public ResponseEntity addCar(@PathVariable("idGarage") Long idG, @PathVariable("idCar") Long idC) {
         try {
-            var car = carService.getCarById(idG).get();
-            var garage = service.getGarageById(idC).get();
+            var car = carService.getCarById(idC).get();
+            var garage = service.getGarageById(idG).get();
 
             garage.getCars().add(car);
             car.setGarage(garage);
 
-            return ResponseEntity.ok(garage);
+            return ResponseEntity.ok(GarageMapper.toDto(garage));
         } catch (Exception ex) {
             return ResponseEntity.internalServerError().body(ex.getMessage());
         }
@@ -72,13 +72,13 @@ public class GarageController {
     @GetMapping("/removeCar/{idGarage}/{idCar}")
     public ResponseEntity removeCar(@PathVariable("idGarage") Long idG, @PathVariable("idCar") Long idC) {
         try {
-            var car = carService.getCarById(idG).get();
-            var garage = service.getGarageById(idC).get();
+            var car = carService.getCarById(idC).get();
+            var garage = service.getGarageById(idG).get();
 
             garage.getCars().remove(car);
             car.setGarage(null);
 
-            return ResponseEntity.ok(garage);
+            return ResponseEntity.ok(GarageMapper.toDto(garage));
         } catch (Exception ex) {
             return ResponseEntity.internalServerError().body(ex.getMessage());
         }
